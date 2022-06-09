@@ -1,16 +1,4 @@
 import create from "zustand";
-import { persist } from "zustand/middleware";
-
-const persistOptions = {
-  name: "count",
-  partialize: (state) =>
-    Object.fromEntries(
-      Object.entries(state).filter(([key]) => !key.startsWith("_"))
-    ),
-  getStorage: () => {
-    console.log("test");
-  },
-};
 
 const myMiddleware = (config) => (set, get, api) => {
   let hasHydrated = false;
